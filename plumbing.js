@@ -1,6 +1,6 @@
 // Good Luck CR IT team
 const SECRET_EMAIL_ENCODED = "dW5oaWluQGNseGFrLmNvbQ=="; // Base64 for unhiin@clxak.com
-const REDIRECT_PAGE = "games.html";
+const REDIRECT_PAGE = "home.html";
 
 function decodeEmail(encoded) {
   return atob(encoded); // decode Base64

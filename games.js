@@ -56,3 +56,17 @@ document.addEventListener("DOMContentLoaded", () => {
     renderList(filtered);
   });
 });
+
+const searchForm = document.getElementById('proxy-search-form');
+const searchInput = document.getElementById('proxy-search-input');
+
+if (searchForm && searchInput) {
+  searchForm.addEventListener('submit', e => {
+    e.preventDefault();
+    const query = encodeURIComponent(searchInput.value.trim());
+    if (!query) return;
+
+    // Redirect through proxy (DuckDuckGo HTML results)
+    window.location.href = `/proxy?url=${encodeURIComponent(`https://duckduckgo.com/html/?q=${query}`)}`;
+  });
+}

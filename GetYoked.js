@@ -10,6 +10,6 @@ document.querySelector('.fullscreen-btn').addEventListener('click', () => {
 });
 
 document.querySelector('.popout-btn').addEventListener('click', () => {
-  // Open the actual 2048 GitHub URL in a new tab
   window.open('https://gregs-games.itch.io/get-yoked-2', '_blank', 'width=1000,height=700');
 });
+

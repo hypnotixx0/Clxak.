@@ -33,6 +33,10 @@ body {
   display: flex;
   align-items: center;
   letter-spacing: 1px;
+  text-decoration: none;
+}
+.site-header .clxak{
+  text-decoration: none;
 }
 
 .uplift-msg {

@@ -8,7 +8,7 @@
 /* Fonts */
 body {
   font-family: "Inter", sans-serif;
-  background: #0f141f; /* dark modern background */
+  background: #0f141f;
   color: #e6eef6;
   line-height: 1.6;
 }
@@ -218,4 +218,5 @@ footer {
   font-size: 0.9rem;
   color: #7a8a99;
 }
+
 

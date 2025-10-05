@@ -1,0 +1,112 @@
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #0c0f1a;
+  color: #fff;
+}
+
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 32px;
+  background: rgba(20,20,35,0.9);
+}
+
+.brand {
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.top-nav a {
+  color: #fff;
+  margin-left: 24px;
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: 0.2s;
+}
+
+.top-nav a.active,
+.top-nav a:hover {
+  background: #081022;
+  color: #00cfff;
+}
+
+.tools-main {
+  max-width: 900px;
+  margin: 36px auto;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 204, 255, 0.4);
+  background: #081022;
+  color: #fff;
+  font-size: 16px;
+}
+
+.tool-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.tool-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #081022;
+  border-radius: 16px;
+  padding: 12px 16px;
+  border: 2px solid rgba(0,204,255,0.4);
+}
+
+.tool-card span {
+  font-size: 18px;
+  font-weight: 600;
+  color: #00cfff;
+}
+
+.tool-card button {
+  background: #00cfff;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  color: #081022;
+}
+
+.tool-display {
+  background: rgba(8,16,34,0.9);
+  padding: 20px;
+  border-radius: 16px;
+  border: 2px solid rgba(0,204,255,0.4);
+  display: none;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.tool-display h2 {
+  margin: 0 0 10px 0;
+  color: #00cfff;
+}
+
+button#apply-cloak,
+button#cloak-btn,
+button#revoke-btn {
+  background: #00cfff;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  color: #081022;
+}

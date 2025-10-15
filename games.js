@@ -10,7 +10,8 @@ const messages = [
 // Games list
 const games = [
   { name: "2048", desc: "Classic number puzzle.", url: "2048.html" },
-  { name: "Get Yoked", desc: "Strategy Game About Getting Yoked", url: "getyoked.html" },
+  { name: "Fnaf 2", desc: "Yw Jr", url: "fnaf2.html" },
+  { name: "Cookie Clicker", desc: "Tuffski", url: "cookieclicker.html" },
 ]
 document.addEventListener("DOMContentLoaded", () => {
   const msgEl = document.getElementById("uplift-msg");

@@ -1,5 +1,5 @@
 // Good Luck CR IT team
-const SECRET_EMAIL_ENCODED = "dW5oaWluQGNseGFrLmNvbQ==";
+const SECRET_EMAIL_ENCODED = "dW5oaWluQGNseGFrLmNvbQ=="; // Base64 for unhiin@clxak.com
 const REDIRECT_PAGE = "home.html";
 
 function decodeEmail(encoded) {
@@ -31,4 +31,3 @@ form.addEventListener('submit', (e) => {
     msg.textContent = 'Thanks — your application was received.';
   }
 });
-

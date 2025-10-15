@@ -3,7 +3,7 @@ const SECRET_EMAIL_ENCODED = "dW5oaWluQGNseGFrLmNvbQ==";
 const REDIRECT_PAGE = "home.html";
 
 function decodeEmail(encoded) {
-  return atob(encoded); // decode Base64
+  return atob(encoded); 
 }
 
 const form = document.getElementById('apply-form');
@@ -31,4 +31,5 @@ form.addEventListener('submit', (e) => {
     msg.textContent = 'Thanks — your application was received.';
   }
 });
+
 

@@ -32,30 +32,92 @@ searchInput.addEventListener('input', () => renderTools(searchInput.value));
 renderTools();
 
 // ------------------------- Tab Cloaker logic -------------------------
+const CLOAK_STORAGE_KEY = 'clxakTabCloak';
+const CLOAK_TITLE_KEY = 'clxakCloakTitle';
+const CLOAK_FAVICON_KEY = 'clxakCloakFavicon';
+
+// Function to apply cloak (used both when applying and on page load)
+function applyCloak(title, favicon) {
+  if (title) {
+    document.title = title;
+  }
+  
+  if (favicon) {
+    // Remove existing favicon links
+    document.querySelectorAll("link[rel~='icon'], link[rel~='shortcut icon']").forEach(link => link.remove());
+    
+    // Create new favicon link
+    const link = document.createElement('link');
+    link.rel = 'icon';
+    link.type = 'image/x-icon';
+    link.href = favicon;
+    document.head.appendChild(link);
+  }
+}
+
+// Function to save cloak to localStorage
+function saveCloak(title, favicon) {
+  if (title) {
+    localStorage.setItem(CLOAK_TITLE_KEY, title);
+  }
+  if (favicon) {
+    localStorage.setItem(CLOAK_FAVICON_KEY, favicon);
+  }
+  localStorage.setItem(CLOAK_STORAGE_KEY, 'true');
+}
+
+// Function to clear saved cloak
+function clearCloak() {
+  localStorage.removeItem(CLOAK_TITLE_KEY);
+  localStorage.removeItem(CLOAK_FAVICON_KEY);
+  localStorage.removeItem(CLOAK_STORAGE_KEY);
+}
+
+// Apply saved cloak on page load
+function applySavedCloak() {
+  const savedTitle = localStorage.getItem(CLOAK_TITLE_KEY);
+  const savedFavicon = localStorage.getItem(CLOAK_FAVICON_KEY);
+  
+  if (savedTitle || savedFavicon) {
+    applyCloak(savedTitle, savedFavicon);
+  }
+}
+
+// Apply saved cloak immediately when script loads
+applySavedCloak();
+
+// Tab Cloaker UI (only on tools page)
 const titleSelect = document.getElementById('title-select');
 const faviconSelect = document.getElementById('favicon-select');
 const applyCloakBtn = document.getElementById('apply-cloak');
 
-applyCloakBtn.addEventListener('click', () => {
-  const newTitle = titleSelect.value || document.title;
-  const newFavicon = faviconSelect.value || null;
+if (applyCloakBtn) {
+  applyCloakBtn.addEventListener('click', () => {
+    const newTitle = titleSelect ? titleSelect.value : null;
+    const newFavicon = faviconSelect ? faviconSelect.value : null;
 
-  // change tab title
-  document.title = newTitle;
+    // Apply the cloak
+    applyCloak(newTitle, newFavicon);
+    
+    // Save to localStorage for persistence
+    saveCloak(newTitle, newFavicon);
 
-  // change favicon (create link if needed)
-  let link = document.querySelector("link[rel~='icon']");
-  if (!link) {
-    link = document.createElement('link');
-    link.rel = 'icon';
-    document.head.appendChild(link);
+    // Visual feedback
+    applyCloakBtn.textContent = "Applied ✓";
+    setTimeout(() => applyCloakBtn.textContent = "Apply Cloak", 1300);
+  });
+  
+  // Load saved values into selects if they exist
+  const savedTitle = localStorage.getItem(CLOAK_TITLE_KEY);
+  const savedFavicon = localStorage.getItem(CLOAK_FAVICON_KEY);
+  
+  if (titleSelect && savedTitle) {
+    titleSelect.value = savedTitle;
   }
-  if (newFavicon) link.href = newFavicon;
-
-  // small visual feedback
-  applyCloakBtn.textContent = "Applied ✓";
-  setTimeout(()=> applyCloakBtn.textContent = "Apply Cloak", 1300);
-});
+  if (faviconSelect && savedFavicon) {
+    faviconSelect.value = savedFavicon;
+  }
+}
 
 // ------------------------- Blob Cloaker (no external file) -------------------------
 let lastBlobUrl = null;

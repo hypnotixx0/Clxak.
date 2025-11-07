@@ -117,6 +117,7 @@
     isAuthenticated: isAuthenticated,
     clearAuth: clearAuth,
     showLoginForm: showLoginForm,
+    showAuthenticatedContent: showAuthenticatedContent,
     showLoadingScreen: showLoadingScreen,
     hideLoadingScreen: hideLoadingScreen
   };

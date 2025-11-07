@@ -104,6 +104,20 @@ body {
   transform: translateY(-2px);
 }
 
+/* Logout button styling */
+.top-nav a#logout-btn,
+.top-nav a[id="logout-btn"] {
+  color: #ff6b6b;
+}
+
+.top-nav a#logout-btn:hover,
+.top-nav a[id="logout-btn"]:hover {
+  background: rgba(255, 107, 107, 0.25);
+  color: #ff5252;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+}
+
 /* Game container */
 .game-container {
   border-radius: 20px;

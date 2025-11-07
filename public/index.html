@@ -178,7 +178,7 @@
     
     <header class="site-header">
       <div class="brand">
-        <a href="/" style="text-decoration: none; color: #fff;">Clxak</a>
+        <a href="/" id="brand-link" style="text-decoration: none; color: #fff;">Clxak</a>
         <span id="uplift-msg" class="uplift-msg"></span>
       </div>
       <nav class="top-nav">
@@ -211,10 +211,26 @@
   </div>
 
   <!-- Scripts -->
+  <script src="/js/cloak-loader.js"></script>
   <script src="/js/auth.js"></script>
   <script src="/js/message.js"></script>
   
   <script>
+    // Handle brand/title link - check auth and show home if authenticated
+    const brandLink = document.getElementById("brand-link");
+    if (brandLink) {
+      brandLink.addEventListener("click", function(e) {
+        if (window.auth && window.auth.isAuthenticated()) {
+          e.preventDefault();
+          // If authenticated, show home content (authenticated view)
+          if (window.auth.showAuthenticatedContent) {
+            window.auth.showAuthenticatedContent();
+          }
+        }
+        // If not authenticated, allow default behavior (go to login)
+      });
+    }
+    
     // Handle logout - show plumbing site again
     const logoutBtn = document.getElementById("logout-btn");
     if (logoutBtn) {

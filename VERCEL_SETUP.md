@@ -16,8 +16,9 @@ Alternatively, if your repository root is `Clxak.-main`, set it to: `Clxak.-main
 ## File Structure
 - All HTML files reference CSS as `/css/filename.css`
 - All HTML files reference JS as `/js/filename.js`
-- The `vercel.json` is in the project root
+- The `vercel.json` is in the `public` folder (since Root Directory is set to `public`)
 - The `public` folder contains all static files
+- Routes: `/games` → `/html/games.html`, `/tools` → `/html/tools.html`
 
 ## Authentication System
 

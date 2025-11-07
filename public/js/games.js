@@ -9,9 +9,9 @@ const messages = [
 
 // Games list
 const games = [
-  { name: "Fnaf 2", desc: "Yw Jr", url: "fnaf2.html" },
-  { name: "Cookie Clicker", desc: "Tuffski", url: "cookieclicker.html" },
-  { name: "Balatro", desc: "For u charles", url: "balatro.html" },
+  { name: "Fnaf 2", desc: "Yw Jr", url: "/html/fnaf2.html" },
+  { name: "Cookie Clicker", desc: "Tuffski", url: "/html/cookieclicker.html" },
+  { name: "Balatro", desc: "For u charles", url: "/html/balatro.html" },
 ]
 document.addEventListener("DOMContentLoaded", () => {
   const msgEl = document.getElementById("uplift-msg");

@@ -19,8 +19,19 @@ Alternatively, if your repository root is `Clxak.-main`, set it to: `Clxak.-main
 - The `vercel.json` is in the project root
 - The `public` folder contains all static files
 
+## Authentication System
+
+The site uses a **non-bypassable login system**:
+- Login form is on the home page (`/`)
+- Uses `sessionStorage` for tab-specific authentication
+- **Authentication expires when the tab is closed** (sessionStorage behavior)
+- URL does not change after login - content is shown/hidden dynamically
+- Protected pages (`/games`, `/tools`) check authentication and redirect to `/` if not authenticated
+- Password: `unhiin@clxak.com`
+
 ## After Configuration
 1. Push your changes to GitHub
 2. Vercel will automatically redeploy
 3. CSS and JavaScript should now load correctly
+4. Test the login system - it should require login on every new tab
 

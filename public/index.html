@@ -5,68 +5,149 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Dover Reliable Plumbing</title>
   <link rel="stylesheet" href="/css/plumbing.css">
+  <style>
+    /* Hide authenticated content by default */
+    #authenticated-content {
+      display: none;
+    }
+    
+    /* Ensure plumbing site shows when not authenticated */
+    #plumbing-site {
+      display: block;
+    }
+    
+    /* When authenticated, hide plumbing site */
+    body.authenticated #plumbing-site {
+      display: none;
+    }
+    
+    body.authenticated #authenticated-content {
+      display: block;
+    }
+  </style>
 </head>
 <body>
-  <div class="wrap">
-    <header class="site-header">
-      <a class="brand" href="#">
-        <div class="logo">DR</div>
-        <div>
-          <h1 class="brand-title">Dover Reliable Plumbing</h1>
-          <p class="brand-sub">Serving Dover, DE</p>
-        </div>
-      </a>
+  <!-- Plumbing Site (shown when not authenticated) -->
+  <div id="plumbing-site">
+    <div class="wrap">
+      <header class="site-header">
+        <a class="brand" href="#">
+          <div class="logo">DR</div>
+          <div>
+            <h1 class="brand-title">Dover Reliable Plumbing</h1>
+            <p class="brand-sub">Serving Dover, DE</p>
+          </div>
+        </a>
 
+        <nav class="top-nav">
+          <a href="#services">Services</a>
+          <a href="#about">About</a>
+          <a class="cta" href="#apply">Apply</a>
+        </nav>
+      </header>
+
+      <section class="hero" id="home">
+        <div class="hero-card">
+          <h2>Fast, friendly plumbing in Dover, Delaware</h2>
+          <p class="lead">Licensed residential & commercial plumbers. 24/7 emergency response across Kent County.</p>
+
+          <div class="features">
+            <div class="feature">🚨 24/7 Emergency</div>
+            <div class="feature">🛠 Licensed Technicians</div>
+            <div class="feature">💧 Free Estimates</div>
+          </div>
+
+          <div class="band">
+            <div class="price">Starting at <strong>$79</strong></div>
+            <div class="muted">Flat-rate diagnostic visit</div>
+          </div>
+
+          <div class="services" id="services">
+            <div class="service-card"><h4>Emergency Repairs</h4><p class="muted">Burst pipe & leak response.</p></div>
+            <div class="service-card"><h4>Drain Cleaning</h4><p class="muted">Camera inspections & clearing.</p></div>
+            <div class="service-card"><h4>Water Heaters</h4><p class="muted">Repair & replacement.</p></div>
+          </div>
+        </div>
+
+        <aside class="contact-card" id="apply">
+          <h3>Apply / Contact</h3>
+
+          <form id="login-form" class="apply-box" autocomplete="off" novalidate>
+            <label for="email" class="note">Enter your email to apply / register</label>
+            <input id="password" name="email" type="text" placeholder="you@example.com" required autocomplete="off" />
+            <div class="form-row">
+              <button id="apply-btn" type="submit">Submit</button>
+              <button id="clear-btn" type="button" class="btn-clear">Clear</button>
+            </div>
+            <div id="apply-msg" class="note"></div>
+          </form>
+
+          <div class="meta">Phone: (302) 555-0147</div>
+        </aside>
+      </section>
+
+      <footer>© <strong>Dover Reliable Plumbing</strong> — Dover, DE</footer>
+    </div>
+  </div>
+
+  <!-- Authenticated Content (hidden until login) -->
+  <div id="authenticated-content">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/games.css">
+    
+    <header class="site-header">
+      <div class="brand">
+        <a href="/" style="text-decoration: none; color: #fff;">Clxak</a>
+        <span id="uplift-msg" class="uplift-msg"></span>
+      </div>
       <nav class="top-nav">
-        <a href="#services">Services</a>
-        <a href="#about">About</a>
-        <a class="cta" href="#apply">Apply</a>
+        <a href="/games" target="_self" class="active">Games</a>
+        <a href="/tools" target="_self" class="active">Tools</a>
+        <a href="#" id="logout-btn" style="color: #ff6b6b;">Logout</a>
       </nav>
     </header>
 
-    <section class="hero" id="home">
-      <div class="hero-card">
-        <h2>Fast, friendly plumbing in Dover, Delaware</h2>
-        <p class="lead">Licensed residential & commercial plumbers. 24/7 emergency response across Kent County.</p>
+    <div class="search-container">
+      <h1 class="search-title">Clxak</h1>
+      <form id="proxy-search-form" class="search-form">
+        <input id="proxy-search-input" type="text" placeholder="Ts Dont Work Mb" required>
+        <button type="submit">Search</button>
+      </form>
+    </div>
 
-        <div class="features">
-          <div class="feature">🚨 24/7 Emergency</div>
-          <div class="feature">🛠 Licensed Technicians</div>
-          <div class="feature">💧 Free Estimates</div>
-        </div>
+    <div class="iframe-container">
+      <iframe id="proxy-iframe" src="" frameborder="0"></iframe>
+    </div>
 
-        <div class="band">
-          <div class="price">Starting at <strong>$79</strong></div>
-          <div class="muted">Flat-rate diagnostic visit</div>
-        </div>
-
-        <div class="services" id="services">
-          <div class="service-card"><h4>Emergency Repairs</h4><p class="muted">Burst pipe & leak response.</p></div>
-          <div class="service-card"><h4>Drain Cleaning</h4><p class="muted">Camera inspections & clearing.</p></div>
-          <div class="service-card"><h4>Water Heaters</h4><p class="muted">Repair & replacement.</p></div>
-        </div>
+    <div class="games-main">
+      <div class="search-box">
       </div>
-
-      <aside class="contact-card" id="apply">
-        <h3>Apply / Contact</h3>
-
-        <form id="apply-form" class="apply-box" autocomplete="off" novalidate>
-          <label for="email" class="note">Enter your email to apply / register</label>
-          <input id="email" name="email" type="email" placeholder="you@example.com" required />
-          <div class="form-row">
-            <button id="apply-btn" type="submit">Submit</button>
-            <button id="clear-btn" type="button" class="btn-clear">Clear</button>
-          </div>
-          <div id="apply-msg" class="note"></div>
-        </form>
-
-        <div class="meta">Phone: (302) 555-0147</div>
-      </aside>
-    </section>
-
-    <footer>© <strong>Dover Reliable Plumbing</strong> — Dover, DE</footer>
+      <div id="game-list" class="game-list"></div>
+      <footer>
+        <p>&copy; 2025 Clxak. All rights reserved.</p>
+      </footer>
+    </div>
   </div>
 
-  <script src="/js/plumbing.js"></script>
+  <!-- Scripts -->
+  <script src="/js/auth.js"></script>
+  <script src="/js/message.js"></script>
+  
+  <script>
+    // Handle logout - show plumbing site again
+    const logoutBtn = document.getElementById("logout-btn");
+    if (logoutBtn) {
+      logoutBtn.addEventListener("click", function(e) {
+        e.preventDefault();
+        if (window.auth) {
+          window.auth.clearAuth();
+          window.auth.showLoginForm();
+          // Clear any iframe content
+          const iframe = document.getElementById("proxy-iframe");
+          if (iframe) iframe.src = "";
+        }
+      });
+    }
+  </script>
 </body>
 </html>

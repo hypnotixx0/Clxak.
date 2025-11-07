@@ -1,11 +1,9 @@
 {
   "rewrites": [
-    { "source": "/",      "destination": "/index.html" },
-    { "source": "/home",  "destination": "/html/home.html" },
     { "source": "/games", "destination": "/html/games.html" },
     { "source": "/tools", "destination": "/html/tools.html" }
   ],
-  "cleanUrls": true,
+  "cleanUrls": false,
   "trailingSlash": false,
   "headers": [
     {

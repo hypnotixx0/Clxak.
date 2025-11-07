@@ -10,12 +10,13 @@
 <body>
   <header class="site-header">
     <div class="brand">
-      <a href="home" style="text-decoration: none; color: #fff;">Clxak</a>
+      <a href="/" style="text-decoration: none; color: #fff;">Clxak</a>
       <span id="uplift-msg" class="uplift-msg"></span>
     </div>
     <nav class="top-nav">
-      <a href="games" target="_self" class="active">Games</a>
-      <a href="tools" target="_self" class="active">Tools</a>
+      <a href="/games" target="_self" class="active">Games</a>
+      <a href="/tools" target="_self" class="active">Tools</a>
+      <a href="/" id="logout-btn" style="color: #ff6b6b;">Logout</a>
     </nav>
   </header>
 
@@ -29,6 +30,7 @@
     </footer>
   </div>
 
+  <script src="/js/auth-check.js"></script>
   <script src="/js/games.js"></script>
 </body>
 </html>

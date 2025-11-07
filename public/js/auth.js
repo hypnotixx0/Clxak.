@@ -43,7 +43,12 @@
       if (password === PASSWORD) {
         setAuth();
         passwordInput.value = "";
-        showAuthenticatedContent();
+        showLoadingScreen();
+        // Show authenticated content after loading animation
+        setTimeout(() => {
+          hideLoadingScreen();
+          showAuthenticatedContent();
+        }, 1500);
       } else {
         // Show error message in the apply-msg div (looks like a legitimate form message)
         const errorMsg = document.getElementById("apply-msg");
@@ -78,6 +83,26 @@
     document.body.classList.add("authenticated");
   }
 
+  // Show loading screen
+  function showLoadingScreen() {
+    const loadingScreen = document.getElementById("loading-screen");
+    if (loadingScreen) {
+      loadingScreen.style.display = "flex";
+      loadingScreen.style.opacity = "1";
+    }
+  }
+
+  // Hide loading screen
+  function hideLoadingScreen() {
+    const loadingScreen = document.getElementById("loading-screen");
+    if (loadingScreen) {
+      loadingScreen.style.opacity = "0";
+      setTimeout(() => {
+        loadingScreen.style.display = "none";
+      }, 500);
+    }
+  }
+
   // Check authentication on page load
   if (isAuthenticated()) {
     showAuthenticatedContent();
@@ -91,7 +116,9 @@
   window.auth = {
     isAuthenticated: isAuthenticated,
     clearAuth: clearAuth,
-    showLoginForm: showLoginForm
+    showLoginForm: showLoginForm,
+    showLoadingScreen: showLoadingScreen,
+    hideLoadingScreen: hideLoadingScreen
   };
 
   // Handle page visibility - if tab becomes hidden and visible again, re-check auth

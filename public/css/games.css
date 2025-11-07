@@ -72,9 +72,10 @@ body {
   margin-left: 15px;
   font-style: italic;
   transition: opacity 0.5s ease-in-out, transform 0.5s ease;
-  opacity: 0;
+  opacity: 1;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+  display: inline-block;
 }
 
 body.loaded .uplift-msg {

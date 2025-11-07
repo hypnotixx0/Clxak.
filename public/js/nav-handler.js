@@ -18,15 +18,17 @@
   
   // Handle title/brand link clicks
   function handleBrandClick(e) {
-    // If authenticated, navigate to home (which will show authenticated view)
+    // If authenticated, always go to home (authenticated view)
     if (isAuthenticated()) {
-      // If we're on index.html, prevent default and show authenticated content
+      e.preventDefault();
+      
+      // If we're on index.html, show authenticated content without navigation
       if (window.location.pathname === '/' && window.auth && window.auth.showAuthenticatedContent) {
-        e.preventDefault();
         window.auth.showAuthenticatedContent();
+      } else {
+        // On other pages, navigate to "/" which will show authenticated view
+        window.location.href = '/';
       }
-      // On other pages, just navigate to "/" - it will show authenticated view
-      // (don't prevent default, let it navigate)
     }
     // If not authenticated, allow default behavior (go to login)
   }

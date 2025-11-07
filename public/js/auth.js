@@ -71,6 +71,22 @@
     if (plumbingSite) plumbingSite.style.display = "block";
     if (authenticatedContent) authenticatedContent.style.display = "none";
     document.body.classList.remove("authenticated");
+    
+    // Restore original plumbing title
+    const savedTitle = localStorage.getItem('clxakCloakTitle');
+    if (savedTitle && document.title === savedTitle) {
+      document.title = "Dover Reliable Plumbing";
+    }
+    
+    // Remove cloaked favicon
+    const savedFavicon = localStorage.getItem('clxakCloakFavicon');
+    if (savedFavicon) {
+      document.querySelectorAll("link[rel~='icon'], link[rel~='shortcut icon']").forEach(link => {
+        if (link.href === savedFavicon) {
+          link.remove();
+        }
+      });
+    }
   }
 
   // Hide plumbing site, show authenticated content
@@ -81,6 +97,32 @@
     if (plumbingSite) plumbingSite.style.display = "none";
     if (authenticatedContent) authenticatedContent.style.display = "block";
     document.body.classList.add("authenticated");
+    
+    // Apply saved cloak if it exists
+    setTimeout(() => {
+      const savedTitle = localStorage.getItem('clxakCloakTitle');
+      const savedFavicon = localStorage.getItem('clxakCloakFavicon');
+      
+      if (savedTitle) {
+        document.title = savedTitle;
+      }
+      
+      if (savedFavicon) {
+        document.querySelectorAll("link[rel~='icon'], link[rel~='shortcut icon']").forEach(link => link.remove());
+        const link = document.createElement('link');
+        link.rel = 'icon';
+        link.type = 'image/x-icon';
+        link.href = savedFavicon;
+        document.head.appendChild(link);
+      }
+      
+      // Trigger message display if message.js is loaded
+      const msgEl = document.getElementById("uplift-msg");
+      if (msgEl && !msgEl.textContent && window.messages) {
+        msgEl.textContent = window.messages[Math.floor(Math.random() * window.messages.length)];
+        document.body.classList.add("loaded");
+      }
+    }, 100);
   }
 
   // Show loading screen

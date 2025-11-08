@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OvO - Clxak</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <header class="site-header">
+    <a href="/" style="text-decoration: none; color: #fff;" class="brand">Clxak - OvO</a>
+    <nav class="top-nav">
+      <a href="/games" target="_self">Games</a>
+      <a href="/tools" target="_self">Tools</a>
+      <a href="/" id="logout-btn" style="color: #ff6b6b;">Logout</a>
+    </nav>
+  </header>
+
+  <div class="game-container">
+    <div class="game-header">
+      <span class="game-title">OvO</span>
+      <div class="game-controls">
+        <button class="reload-btn">⟳</button>
+        <button class="fullscreen-btn">⛶</button>
+        <button class="popout-btn">↗</button>
+      </div>
+    </div>
+
+    <!-- Embed the actual 2048 game -->
+    <iframe src="OvO.html" class="game-iframe"></iframe>
+  </div>
+
+  <script src="/js/cloak-loader.js"></script>
+  <script src="/js/auth-check.js"></script>
+  <script src="/js/nav-handler.js"></script>
+  <script src="/js/main.js"></script>
+</body>
+</html>

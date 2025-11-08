@@ -12,6 +12,7 @@ const games = [
   { name: "Fnaf 2", desc: "Something for jr", url: "/html/fnaf2.html" },
   { name: "Cookie Clicker", desc: "Get Clicking", url: "/html/cookieclicker.html" },
   { name: "Balatro", desc: "For u charles", url: "/html/balatro.html" },
+  { name: "Hotline Miami", desc: "So Incelcore", url: "/html/hotlinemiami.html" },
 ]
 document.addEventListener("DOMContentLoaded", () => {
   const msgEl = document.getElementById("uplift-msg");
@@ -71,3 +72,4 @@ if (searchForm && searchInput) {
     window.location.href = `/proxy?url=${encodeURIComponent(`https://duckduckgo.com/html/?q=${query}`)}`;
   });
 }
+

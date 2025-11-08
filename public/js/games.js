@@ -14,7 +14,7 @@ const games = [
   { name: "Balatro", desc: "For u charles", url: "/html/balatro.html" },
   { name: "Hotline Miami", desc: "So Incelcore", url: "/html/hotlinemiami.html" },
   { name: "Fnaf 4", desc: "Luv u nemo", url: "/html/fnaf4.html" },
-  { name: "OvO", desc: "Fun Speedrun", url: "/html/OvO.html" },
+  { name: "OvO", desc: "Fun Speedrun", url: "/html/ovo.html" },
 ];
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -84,4 +84,5 @@ if (searchForm && searchInput) {
     window.location.href = `/proxy?url=${encodeURIComponent(`https://duckduckgo.com/html/?q=${query}`)}`;
   });
 }
+
 

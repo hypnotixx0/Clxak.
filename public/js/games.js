@@ -14,7 +14,8 @@ const games = [
   { name: "Balatro", desc: "For u charles", url: "/html/balatro.html" },
   { name: "Hotline Miami", desc: "So Incelcore", url: "/html/hotlinemiami.html" },
   { name: "Fnaf 4", desc: "Luv u nemo", url: "/html/fnaf4.html" },
-]
+];
+
 document.addEventListener("DOMContentLoaded", () => {
   const msgEl = document.getElementById("uplift-msg");
   msgEl.textContent = messages[Math.floor(Math.random() * messages.length)];
@@ -23,9 +24,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const listEl = document.getElementById("game-list");
   const searchInput = document.getElementById("game-search");
 
+  // Helper: sort alphabetically by name
+  function sortAlphabetically(list) {
+    return list.slice().sort((a, b) => a.name.localeCompare(b.name));
+  }
+
   function renderList(filtered) {
     listEl.innerHTML = "";
-    filtered.forEach(game => {
+    // Always display alphabetically
+    const sorted = sortAlphabetically(filtered);
+    sorted.forEach(game => {
       const card = document.createElement("div");
       card.className = "game-card";
 
@@ -47,9 +55,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // Render games alphabetically on load
   renderList(games);
 
-  // Search functionality
+  // Search functionality (also alphabetically sorted)
   searchInput.addEventListener("input", () => {
     const q = searchInput.value.toLowerCase();
     const filtered = games.filter(g =>
@@ -60,6 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+// Proxy search form
 const searchForm = document.getElementById('proxy-search-form');
 const searchInput = document.getElementById('proxy-search-input');
 
@@ -73,5 +83,3 @@ if (searchForm && searchInput) {
     window.location.href = `/proxy?url=${encodeURIComponent(`https://duckduckgo.com/html/?q=${query}`)}`;
   });
 }
-
-
